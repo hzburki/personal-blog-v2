@@ -1,7 +1,12 @@
 {
   "name": "personal-blog-v2",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "private": false,
+  "description": "Personal website and blog of Haseeb Zia Burki",
+  "author": {
+    "name": "Haseeb Zia Burki",
+    "email": "hzburki.hzb@gmail.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
