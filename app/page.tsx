@@ -1,30 +1,37 @@
-import Link from "next/link";
+import ASSETS from "@/assets";
+import Image from "next/image";
+
+const { HI_THREE } = ASSETS.BITMOJI;
 
 export default function Home() {
   return (
-    <main>
-      <header className="px-6 py-4 max-w-4xl mx-auto flex flex-col sm:flex-row sm:justify-between">
-        {/* Left Container */}
-        <div className="flex border text-3xl justify-center mb-2 sm:mb-0 sm:justify-start">
-          <Link
-            href="/"
-            className="hover:underline hover:font-bold font-semibold"
-          >
-            hzburki.com
-          </Link>
+    <div className="flex flex-col gap-4 justify-center flex-wrap py-6">
+      <div className="flex justify-center">
+        <Image
+          alt="hzburki hey bitmoji"
+          className="grayscale w-auto h-60 rounded-e-full"
+          src={HI_THREE}
+        />
+      </div>
+
+      <div className="my-4 flex flex-col gap-8">
+        <div className="text-center">
+          <h1 className="font-semibold text-4xl text-blue-700">
+            Haseeb Zia Burki
+          </h1>
+          <h2 className="font-light text-gray-800 text-xl">
+            Software Engineer
+          </h2>
         </div>
 
-        {/* Right Container */}
-        <div className="border text-2xl flex flex-row justify-evenly gap-4">
-          <Link className="hover:underline hover:font-bold" href="/about-me">
-            About
-          </Link>
-          <Link className="hover:underline hover:font-bold" href="/blog">
-            Blog
-          </Link>
+        <div className="mx-auto max-w-xl text-lg text-center text-gray-800 flex flex-col gap-4">
+          <p>
+            I’m a first time startup founder, a software engineer, a full stack
+            web developer, a casual blogger and a tech enthusiast.
+          </p>
+          <p>Continue ⬇️ to read more about me 😃</p>
         </div>
-      </header>
-      <footer className="text-center py-2">Made with NextJS + Markdown</footer>
-    </main>
+      </div>
+    </div>
   );
 }
