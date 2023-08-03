@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="border text-center py-2">
-      Made with NextJS + Markdown
+    <footer className='border py-2 text-center'>
+      <p className='text-gray-800'>Made with NextJS + Markdown</p>
     </footer>
   );
 }

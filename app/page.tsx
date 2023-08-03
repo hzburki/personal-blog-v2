@@ -16,7 +16,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <div className='my-4 flex flex-col gap-8'>
+      <div className='my-4 flex flex-col gap-8 border'>
         <div className='text-center'>
           <h1 className='text-4xl font-semibold text-blue-600'>
             Haseeb Zia Burki
@@ -36,10 +36,10 @@ export default function Home() {
       </div>
 
       {/* Divider */}
-      <div className='h-40' />
+      <div className='h-20' />
 
       {/* About Me Section */}
-      <div className='flex flex-col items-start gap-8'>
+      <div className='flex flex-col items-start gap-8 border'>
         <div className='flex flex-col gap-2'>
           <h1 className='text-3xl font-semibold text-blue-600'>About Me</h1>
 
@@ -89,9 +89,9 @@ export default function Home() {
       </div>
 
       {/* Divider */}
-      <div className='h-40' />
+      <div className='h-20' />
 
-      <div className='flex'>
+      <div className='w-full border'>
         <div className='w-3/4' />
 
         <div className='flex w-1/4 flex-col gap-4'>
