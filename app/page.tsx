@@ -1,6 +1,19 @@
-import ASSETS from '@/assets';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+
+import ASSETS from '@/assets';
+import Divider from '@/components/divider.comp';
+import PageTitle from '@/components/typography/page-title.comp';
+import SectionTitle from '@/components/typography/section-title.comp';
+
+// Social Media Icons
+import {
+  GithubIcon,
+  LinkedInIcon,
+  RedditIcon,
+  StackoverflowIcon,
+  TwitterIcon,
+} from '@/components/social-icons.comp';
 
 const { HI_THREE } = ASSETS.BITMOJI;
 
@@ -18,15 +31,14 @@ export default function Home() {
       {/* Hero Section */}
       <div className='my-4 flex flex-col gap-8 border'>
         <div className='text-center'>
-          <h1 className='text-4xl font-semibold text-blue-600'>
-            Haseeb Zia Burki
-          </h1>
+          <PageTitle text='Haseeb Zia Burki' />
+
           <h2 className='text-xl font-light text-gray-800'>
             Software Engineer
           </h2>
         </div>
 
-        <div className='mx-auto flex max-w-xl flex-col gap-4 text-center text-lg text-gray-800'>
+        <div className='mx-auto flex max-w-xl flex-col gap-4 text-center text-gray-800'>
           <p>
             I’m a first time startup founder, a software engineer, a full stack
             web developer, a casual blogger and a tech enthusiast.
@@ -36,7 +48,7 @@ export default function Home() {
       </div>
 
       {/* Divider */}
-      <div className='h-20' />
+      <Divider />
 
       {/* About Me Section */}
       <div className='flex flex-col items-start gap-8 border'>
@@ -62,7 +74,7 @@ export default function Home() {
           </p>
           <p>
             I lead the technical team of 15 people situated in{' '}
-            <span className='text-green-900 hover:font-bold'>
+            <span className='cursor-default text-green-900 hover:font-bold'>
               Islamabad, Pakistan
             </span>
             . We are responsible for all the technical aspects of Numu from
@@ -89,45 +101,62 @@ export default function Home() {
       </div>
 
       {/* Divider */}
-      <div className='h-20' />
+      <Divider />
 
-      <div className='w-full border'>
+      <div className='flex border'>
         <div className='w-3/4' />
 
         <div className='flex w-1/4 flex-col gap-4'>
-          <h4 className='text-right text-2xl leading-6 text-blue-600'>
-            Connect with me on <br /> social media
-          </h4>
-          <div className='gap flex flex-col items-end'>
+          <SectionTitle
+            textPosition='text-right'
+            text='Connect with me on social media'
+            size='h3'
+          />
+          <div className='flex flex-col items-end gap-1'>
             <a
               href=''
-              className='text-gray-800 hover:font-bold hover:text-blue-600 hover:underline'
+              className='text-gray-800 hover:font-bold hover:text-blue-600'
             >
-              LinkedIn
+              <div className='flex flex-row gap-2'>
+                <LinkedInIcon />
+                <p>LinkedIn</p>
+              </div>
             </a>
             <a
               href=''
-              className='text-gray-800 hover:font-bold hover:text-blue-600 hover:underline'
+              className='text-gray-800 hover:font-bold hover:text-blue-600'
             >
-              Github
+              <div className='flex flex-row gap-2'>
+                <GithubIcon />
+                <p>Github</p>
+              </div>
             </a>
             <a
               href=''
-              className='text-gray-800 hover:font-bold hover:text-blue-600 hover:underline'
+              className='text-gray-800 hover:font-bold hover:text-blue-600'
             >
-              Stackoverflow
+              <div className='flex flex-row gap-2'>
+                <StackoverflowIcon />
+                <p>Stackoverflow</p>
+              </div>
             </a>
             <a
               href=''
-              className='text-gray-800 hover:font-bold hover:text-blue-600 hover:underline'
+              className='text-gray-800 hover:font-bold hover:text-blue-600'
             >
-              Twitter
+              <div className='flex flex-row gap-2'>
+                <TwitterIcon />
+                <p>Twitter</p>
+              </div>
             </a>
             <a
               href=''
-              className='text-gray-800 hover:font-bold hover:text-blue-600 hover:underline'
+              className='text-gray-800 hover:font-bold hover:text-blue-600'
             >
-              Quora
+              <div className='flex flex-row gap-2'>
+                <RedditIcon />
+                <p>Reddit</p>
+              </div>
             </a>
           </div>
         </div>
