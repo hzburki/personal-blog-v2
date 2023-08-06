@@ -1,6 +1,8 @@
 // Bitmoji
-import HEY from "./bitmoji/hey.png"
-import HI_THREE from "./bitmoji/hi_three.png"
+import HEY from "./bitmojis/hey.png"
+import HI_THREE from "./bitmojis/hi_three.png"
+
+// Posts/Aricles
 
 const IMAGES = {
   BITMOJI: {
