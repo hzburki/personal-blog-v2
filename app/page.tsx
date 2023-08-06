@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import ASSETS from '@/assets';
+import ASSETS from '@/public/images';
 import Divider from '@/components/divider.comp';
 import PageTitle from '@/components/typography/page-title.comp';
 import SectionTitle from '@/components/typography/section-title.comp';
@@ -19,7 +19,7 @@ const { HI_THREE } = ASSETS.BITMOJI;
 
 export default function Home() {
   return (
-    <div className='mt-[5vh] flex flex-col flex-wrap justify-center gap-4 py-6'>
+    <div className='mt-[5vh] flex flex-col flex-wrap justify-center gap-4 py-8'>
       <div className='flex justify-center'>
         <Image
           alt='hzburki hey bitmoji'
@@ -58,7 +58,7 @@ export default function Home() {
           <h2 className='text-xl text-gray-800'>
             Co-Founder & CTO @{' '}
             <a
-              className='text-blue-600 hover:font-bold hover:underline'
+              className='text-blue-600 hover:font-bold  '
               target='_blank'
               href='https://numuworld.com'
             >
@@ -82,17 +82,11 @@ export default function Home() {
           </p>
           <p>
             To read more about my experience and achievements go to{' '}
-            <Link
-              href='/about-me'
-              className='text-blue-600 hover:font-bold hover:underline'
-            >
+            <Link href='/about-me' className='text-blue-600 hover:font-bold  '>
               My Journey
             </Link>{' '}
             or to read more my technical adventures head over to my{' '}
-            <Link
-              href='/blog'
-              className='text-blue-600 hover:font-bold hover:underline'
-            >
+            <Link href='/blog' className='text-blue-600 hover:font-bold  '>
               Blog
             </Link>
             .{' '}

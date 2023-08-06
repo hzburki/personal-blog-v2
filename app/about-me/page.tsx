@@ -1,7 +1,9 @@
+import PageTitle from '@/components/typography/page-title.comp';
+
 export default function AboutMe() {
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-semibold font-nunito">About Me</h1>
+    <div className='py-8'>
+      <PageTitle textPosition='text-left' text='About Me' />
     </div>
   );
 }

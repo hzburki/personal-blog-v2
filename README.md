@@ -1,5 +1,13 @@
 # Personal Blog
 
+## To Do
+
+- [ ] Transfer Blogs 
+   - [ ] Create the blog list page
+   - [ ] Create the single blog page
+- [ ] Create the about page
+- [ ] UI/UX Consistency 
+
 ## VSCode Extensions & Third Party Packages
 
 1. [MDX Preview](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)

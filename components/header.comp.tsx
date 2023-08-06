@@ -6,20 +6,17 @@ export default function Header() {
     <header className='flex flex-col border py-4 sm:flex-row sm:justify-between'>
       {/* Left Container */}
       <div className='mb-2 flex justify-center text-2xl sm:mb-0 sm:justify-start'>
-        <Link
-          href='/'
-          className='font-shantell-sans hover:font-semibold hover:underline'
-        >
+        <Link href='/' className='font-shantell-sans hover:font-semibold  '>
           hzburki.com
         </Link>
       </div>
 
       {/* Right Container */}
       <div className='flex flex-row justify-evenly gap-8 border text-2xl'>
-        <Link className='hover:font-bold hover:underline' href='/about-me'>
+        <Link className='hover:font-bold  ' href='/about-me'>
           About
         </Link>
-        <Link className='hover:font-bold hover:underline' href='/blog'>
+        <Link className='hover:font-bold  ' href='/blog'>
           Blog
         </Link>
       </div>

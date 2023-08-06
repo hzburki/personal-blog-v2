@@ -1,16 +1,26 @@
-import { compareDesc } from "date-fns";
-import { allPosts } from "contentlayer/generated";
+import { compareDesc } from 'date-fns';
+import { allPosts } from 'contentlayer/generated';
 
-import PostCard from "@/components/post-card.comp";
+import PostCard from '@/components/post-card.comp';
+import PageTitle from '@/components/typography/page-title.comp';
+import Divider from '@/components/divider.comp';
 
 export default function Blog() {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
 
+  console.log({
+    posts,
+    html: posts[0].description.html,
+    raw: posts[0].description.raw,
+  });
+
   return (
-    <div className="py-8">
-      <h1 className="mb-8 text-center text-2xl font-black">My Blogs</h1>
+    <div className='py-8'>
+      <PageTitle text='My Blogs' />
+
+      <Divider />
 
       {posts.map((post, index) => (
         <PostCard key={index} {...post} />
