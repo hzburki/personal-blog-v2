@@ -33,10 +33,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${nunito.variable} ${shantellSans.variable} mx-auto max-w-4xl font-nunito`}
+        className={`${nunito.variable} ${shantellSans.variable} mx-auto flex min-h-screen max-w-5xl flex-col font-nunito`}
       >
         <Header />
-        <main>{children}</main>
+
+        <main className='flex flex-grow'>{children}</main>
+
         <Footer />
       </body>
     </html>

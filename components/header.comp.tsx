@@ -16,8 +16,8 @@ export default function Header() {
 
       {/* Right Container */}
       <div className='flex flex-row justify-evenly gap-0 text-2xl sm:gap-8'>
-        <Link className='w-full text-center hover:font-bold' href='/about-me'>
-          About
+        <Link className='w-full text-center hover:font-bold' href='/journey'>
+          Journey
         </Link>
         <Link className='w-full text-center hover:font-bold' href='/blog'>
           Blog
