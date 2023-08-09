@@ -11,14 +11,14 @@ export default function SectionTitle(props: SectionTitleProps) {
 
   if (size === 'h2') {
     return (
-      <h2 className={`text-3xl font-semibold text-blue-600 ${textPosition}`}>
+      <h2 className={`text-3xl font-semibold text-gray-800 ${textPosition}`}>
         {text}
       </h2>
     );
   }
 
   return (
-    <h3 className={`text-2xl font-semibold text-blue-600 ${textPosition}`}>
+    <h3 className={`text-2xl font-semibold text-gray-800 ${textPosition}`}>
       {text}
     </h3>
   );

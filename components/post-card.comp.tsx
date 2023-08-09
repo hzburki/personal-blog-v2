@@ -5,15 +5,11 @@ import { Post } from 'contentlayer/generated';
 
 function PostCard(post: Post) {
   return (
-    <div className='flex flex-col items-start justify-center gap-2 py-8 '>
-      <h2 className='mb-1 text-xl'>
-        <Link
-          href={post.url}
-          className='text-blue-700 hover:text-blue-900 dark:text-blue-400'
-        >
-          {post.title}
-        </Link>
-      </h2>
+    <Link
+      href={post.url}
+      className='group flex flex-col items-start justify-center gap-2 border-b-2 border-dashed py-8 last:border-0'
+    >
+      <h2 className='mb-1 text-xl font-bold text-gray-800'>{post.title}</h2>
 
       <div className='flex w-full'>
         <Image
@@ -21,7 +17,7 @@ function PostCard(post: Post) {
           alt={post.title}
           width={450}
           height={100}
-          className='rounded-lg shadow'
+          className='rounded-lg shadow grayscale group-hover:grayscale-0 group-active:grayscale-0'
         />
 
         <div className='flex flex-col justify-center px-4'>
@@ -33,12 +29,12 @@ function PostCard(post: Post) {
           </time>
 
           <div
-            className='prose text-sm [&>*:last-child]:mb-0 [&>*]:mb-3'
+            className='prose [&>*:last-child]:mb-0 [&>*]:mb-3'
             dangerouslySetInnerHTML={{ __html: post.description.html }}
           />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

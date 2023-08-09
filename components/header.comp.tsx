@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className='flex flex-col py-4 sm:flex-row sm:justify-between sm:px-4'>
+    <header className='flex flex-col  px-0 py-4 sm:flex-row sm:justify-between sm:px-4 xl:px-0'>
       {/* Left Container */}
       <div className='mb-2 flex justify-center text-2xl sm:mb-0 sm:justify-start'>
         <Link href='/' className='font-shantell-sans hover:font-semibold'>
@@ -12,7 +12,7 @@ export default function Header() {
       </div>
 
       {/* Creates a navbar only on small screens */}
-      <div className='mb-4 border-b-2 shadow sm:hidden' />
+      <div className='-b-2 mb-4 shadow sm:hidden' />
 
       {/* Right Container */}
       <div className='flex flex-row justify-evenly gap-0 text-2xl sm:gap-8'>

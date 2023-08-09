@@ -8,6 +8,7 @@
     "email": "hzburki.hzb@gmail.com"
   },
   "scripts": {
+    "reset": "rm -rf .next && rm -rf .contentlayer && npm run dev",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

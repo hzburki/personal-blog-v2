@@ -36,7 +36,7 @@ export default function RootLayout({
         className={`${nunito.variable} ${shantellSans.variable} mx-auto max-w-4xl font-nunito`}
       >
         <Header />
-        <main className=''>{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

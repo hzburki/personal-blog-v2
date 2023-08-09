@@ -9,7 +9,7 @@ export default function PageTitle(props: PageTitleProps) {
   const { text, textPosition = 'text-center' } = props;
 
   return (
-    <h1 className={`text-4xl font-semibold text-blue-600 ${textPosition}`}>
+    <h1 className={`text-4xl font-semibold text-gray-800 ${textPosition}`}>
       {text}
     </h1>
   );

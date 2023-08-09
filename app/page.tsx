@@ -19,7 +19,7 @@ const { HI_THREE } = ASSETS.BITMOJI;
 
 export default function Home() {
   return (
-    <div className='mt-[1vh] flex flex-col flex-wrap justify-center gap-4 py-8 md:mt-[5vh]'>
+    <div className='flex flex-col flex-wrap justify-center gap-4  py-8 pt-[1vh] md:pt-[5vh]'>
       <div className='flex justify-center'>
         <Image
           alt='hzburki hey bitmoji'
@@ -29,7 +29,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <div className='my-4 flex flex-col gap-8 px-4 lg:px-0'>
+      <div className='my-4 flex flex-col gap-8 px-4 xl:px-0'>
         <div className='text-center'>
           <PageTitle text='Haseeb Zia Burki' />
 
@@ -51,14 +51,14 @@ export default function Home() {
       <Divider />
 
       {/* About Me Section */}
-      <div className='flex flex-col items-start gap-8 px-4 lg:px-0'>
+      <div className='flex flex-col items-start gap-8 px-4 xl:px-0'>
         <div className='flex flex-col gap-2'>
-          <h1 className='text-3xl font-semibold text-blue-600'>About Me</h1>
+          <h1 className='text-3xl font-semibold text-gray-800'>About Me</h1>
 
           <h2 className='text-xl text-gray-800'>
             Co-Founder & CTO @{' '}
             <a
-              className='text-blue-600 hover:font-bold  '
+              className='text-gray-800 hover:font-bold  '
               target='_blank'
               href='https://numuworld.com'
             >
@@ -82,11 +82,17 @@ export default function Home() {
           </p>
           <p>
             To read more about my experience and achievements go to{' '}
-            <Link href='/about-me' className='text-blue-600 hover:font-bold  '>
+            <Link
+              href='/journey'
+              className='text-gray-800 underline hover:font-bold  '
+            >
               My Journey
             </Link>{' '}
             or to read more my technical adventures head over to my{' '}
-            <Link href='/blog' className='text-blue-600 hover:font-bold  '>
+            <Link
+              href='/blog'
+              className='text-gray-800 underline hover:font-bold  '
+            >
               Blog
             </Link>
             .{' '}
@@ -100,7 +106,7 @@ export default function Home() {
       <div className='flex'>
         <div className='hidden md:block md:w-3/4' />
 
-        <div className='flex w-full flex-col gap-4 px-4 lg:w-1/4 lg:px-0'>
+        <div className='flex w-full flex-col gap-4 px-4 lg:w-1/4 xl:px-0'>
           <SectionTitle
             textPosition='text-right'
             text='Connect with me on social media'
@@ -110,7 +116,7 @@ export default function Home() {
           <div className='flex flex-col items-end gap-1'>
             <a
               href=''
-              className='text-gray-800 hover:font-bold hover:text-blue-600'
+              className='text-gray-800 hover:font-bold hover:text-gray-800'
             >
               <div className='flex flex-row gap-2'>
                 <LinkedInIcon />
@@ -119,7 +125,7 @@ export default function Home() {
             </a>
             <a
               href=''
-              className='text-gray-800 hover:font-bold hover:text-blue-600'
+              className='text-gray-800 hover:font-bold hover:text-gray-800'
             >
               <div className='flex flex-row gap-2'>
                 <GithubIcon />
@@ -128,7 +134,7 @@ export default function Home() {
             </a>
             <a
               href=''
-              className='text-gray-800 hover:font-bold hover:text-blue-600'
+              className='text-gray-800 hover:font-bold hover:text-gray-800'
             >
               <div className='flex flex-row gap-2'>
                 <StackoverflowIcon />
@@ -137,7 +143,7 @@ export default function Home() {
             </a>
             <a
               href=''
-              className='text-gray-800 hover:font-bold hover:text-blue-600'
+              className='text-gray-800 hover:font-bold hover:text-gray-800'
             >
               <div className='flex flex-row gap-2'>
                 <TwitterIcon />
@@ -146,7 +152,7 @@ export default function Home() {
             </a>
             <a
               href=''
-              className='text-gray-800 hover:font-bold hover:text-blue-600'
+              className='text-gray-800 hover:font-bold hover:text-gray-800'
             >
               <div className='flex flex-row gap-2'>
                 <RedditIcon />
