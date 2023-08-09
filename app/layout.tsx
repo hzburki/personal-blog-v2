@@ -1,28 +1,28 @@
-import "./globals.css";
+import './globals.css';
 
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
 // Importing Google Fonts
-import { Nunito, Shantell_Sans } from "next/font/google";
+import { Nunito, Shantell_Sans } from 'next/font/google';
 
 // Custom Imports
-import { Header, Footer } from "@/components";
+import { Header, Footer } from '@/components';
 
 const nunito = Nunito({
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-nunito",
+  display: 'swap',
+  subsets: ['latin'],
+  variable: '--font-nunito',
 });
 
 const shantellSans = Shantell_Sans({
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-shantell-sans",
+  display: 'swap',
+  subsets: ['latin'],
+  variable: '--font-shantell-sans',
 });
 
 export const metadata: Metadata = {
-  title: "hzburki",
-  description: "Personal website and blog of Haseeb Zia Burki",
+  title: 'hzburki',
+  description: 'Personal website and blog of Haseeb Zia Burki',
 };
 
 export default function RootLayout({
@@ -31,13 +31,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body
-        className={`${nunito.variable} ${shantellSans.variable} font-nunito max-w-4xl mx-auto`}
+        className={`${nunito.variable} ${shantellSans.variable} mx-auto max-w-4xl font-nunito`}
       >
         <Header />
 
-        <main className="border">{children}</main>
+        <main className=''>{children}</main>
 
         <Footer />
       </body>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import ASSETS from '@/public/images';
+import ASSETS from '@/images';
 import Divider from '@/components/divider.comp';
 import PageTitle from '@/components/typography/page-title.comp';
 import SectionTitle from '@/components/typography/section-title.comp';
@@ -29,7 +29,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <div className='my-4 flex flex-col gap-8 border'>
+      <div className='my-4 flex flex-col gap-8 '>
         <div className='text-center'>
           <PageTitle text='Haseeb Zia Burki' />
 
@@ -51,7 +51,7 @@ export default function Home() {
       <Divider />
 
       {/* About Me Section */}
-      <div className='flex flex-col items-start gap-8 border'>
+      <div className='flex flex-col items-start gap-8 '>
         <div className='flex flex-col gap-2'>
           <h1 className='text-3xl font-semibold text-blue-600'>About Me</h1>
 
@@ -97,7 +97,7 @@ export default function Home() {
       {/* Divider */}
       <Divider />
 
-      <div className='flex border'>
+      <div className='flex '>
         <div className='w-3/4' />
 
         <div className='flex w-1/4 flex-col gap-4'>

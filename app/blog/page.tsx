@@ -10,17 +10,11 @@ export default function Blog() {
     compareDesc(new Date(a.date), new Date(b.date))
   );
 
-  console.log({
-    posts,
-    html: posts[0].description.html,
-    raw: posts[0].description.raw,
-  });
-
   return (
     <div className='py-8'>
       <PageTitle text='My Blogs' />
 
-      <Divider />
+      <Divider height='h-20' />
 
       {posts.map((post, index) => (
         <PostCard key={index} {...post} />
