@@ -53,7 +53,7 @@ export default function Home() {
       {/* About Me Section */}
       <div className='flex flex-col items-start gap-8 px-4 xl:px-0'>
         <div className='flex flex-col gap-2'>
-          <h1 className='text-3xl font-semibold text-gray-800'>About Me</h1>
+          <SectionTitle text='About Me' size='h2' textPosition='text-left' />
 
           <h2 className='text-xl text-gray-800'>
             Co-Founder & CTO @{' '}
@@ -109,8 +109,8 @@ export default function Home() {
         <div className='flex w-full flex-col gap-4 px-4 lg:w-1/4 xl:px-0'>
           <SectionTitle
             textPosition='text-right'
-            text='Connect with me on social media'
-            size='h3'
+            text='Connect with me'
+            size='h2'
           />
 
           <div className='flex flex-col items-end gap-1'>
