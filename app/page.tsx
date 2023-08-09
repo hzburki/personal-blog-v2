@@ -19,7 +19,7 @@ const { HI_THREE } = ASSETS.BITMOJI;
 
 export default function Home() {
   return (
-    <div className='mt-[5vh] flex flex-col flex-wrap justify-center gap-4 py-8'>
+    <div className='mt-[1vh] flex flex-col flex-wrap justify-center gap-4 py-8 md:mt-[5vh]'>
       <div className='flex justify-center'>
         <Image
           alt='hzburki hey bitmoji'
@@ -29,7 +29,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <div className='my-4 flex flex-col gap-8 '>
+      <div className='my-4 flex flex-col gap-8 px-4 lg:px-0'>
         <div className='text-center'>
           <PageTitle text='Haseeb Zia Burki' />
 
@@ -51,7 +51,7 @@ export default function Home() {
       <Divider />
 
       {/* About Me Section */}
-      <div className='flex flex-col items-start gap-8 '>
+      <div className='flex flex-col items-start gap-8 px-4 lg:px-0'>
         <div className='flex flex-col gap-2'>
           <h1 className='text-3xl font-semibold text-blue-600'>About Me</h1>
 
@@ -67,7 +67,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className='flex w-2/3 flex-col gap-4 text-gray-800'>
+        <div className='flex flex-col gap-4 text-gray-800 md:w-2/3'>
           <p>
             Numu is an end to end influencer marketing platform which works with
             social media platforms like Instagram and Tiktok.
@@ -97,15 +97,16 @@ export default function Home() {
       {/* Divider */}
       <Divider />
 
-      <div className='flex '>
-        <div className='w-3/4' />
+      <div className='flex'>
+        <div className='hidden md:block md:w-3/4' />
 
-        <div className='flex w-1/4 flex-col gap-4'>
+        <div className='flex w-full flex-col gap-4 px-4 lg:w-1/4 lg:px-0'>
           <SectionTitle
             textPosition='text-right'
             text='Connect with me on social media'
             size='h3'
           />
+
           <div className='flex flex-col items-end gap-1'>
             <a
               href=''
