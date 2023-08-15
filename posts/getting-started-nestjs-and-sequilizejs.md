@@ -2,7 +2,7 @@
 title: 'Getting Started with NestJS & SequilizeJS'
 date: '2019-09-07'
 status: published
-image: '/posts/nestjs-sequelize-feature-image.jpeg'
+image: '/feature-image/nestjs-sequelize-feature-image.jpeg'
 description: 'Coming from Laravel, which has a myriad of built-in features I started to resent shifting to NodeJS. Setting up error handling, logging, dependency injection, etc. was not what I had in mind. Thankfully I found NestJS, with its out-of-the-box architecture and great documentation I started feeling at home again.'
 tags:
   - nestjs

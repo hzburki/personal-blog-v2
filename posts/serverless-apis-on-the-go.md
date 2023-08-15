@@ -2,7 +2,7 @@
 title: 'How to Serverless — Production Ready APIs on the Go'
 date: '2019-04-16'
 status: published
-image: '/posts/prod-ready-server-api-feature-image.jpeg'
+image: '/feature-image/prod-ready-server-api-feature-image.jpeg'
 description: 'The Serverless Framework is an open source toolbox which enables developers to create, package and deploy their codebase on any cloud platform, in any language.'
 tags:
   - serverless
@@ -60,12 +60,15 @@ Now, it’s easy to get confused between Serverless Architecture and Framework. 
 
 In our particular case serverless manages the following resources;
 
-<div class='wp-block-image ticss-f4f2a4fb'>
-  <figure class='aligncenter size-full is-resized'>
-    ![](http://hzburki.com/wp-content/uploads/2022/08/1_Od5kpC1HqyUe4c8lNeXsQw.png)
-    <figcaption>*Serverless Framework converting code into product*</figcaption>
-  </figure>
-</div>
+# Image Start Here
+
+<BlogImage
+  src='serverless_flow_diagram.png'
+  alt='Serverless Framework converting code into product'
+/>
+
+# Image End Here
+
 ### Step 1
 
 Serverless used “AWS Cloud Formation” to create a stack of all the resources we need. We can use the serverless cli to create and deploy these resources with;

@@ -2,7 +2,7 @@
 title: 'Create your first AWS Billing Alarm'
 date: '2019-09-02'
 status: published
-image: '/posts/first-aws-billing-alarm-feature-image.jpeg'
+image: '/feature-image/first-aws-billing-alarm-feature-image.jpeg'
 description: 'AWS gives a one-year free trial and there are a lot of great tutorials out there, enabling young devs to get started in no time. However, before getting started, it is strongly recommended that you set up a billing alarm to avoid any unnecessary costs.'
 tags:
   - aws
