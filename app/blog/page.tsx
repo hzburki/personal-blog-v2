@@ -12,7 +12,7 @@ export default function Blog() {
 
   return (
     <div className='py-8'>
-      <PageTitle text='My Blogs' />
+      <PageTitle text='My Blog' />
 
       <Divider height='h-20' />
 

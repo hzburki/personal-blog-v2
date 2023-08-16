@@ -4,10 +4,7 @@ const { withContentlayer } = require('next-contentlayer')
 const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
-  experimental: {
-    mdxRs: true,
-  },
+  experimental: {},
 }
 
-const withMDX = require('@next/mdx')()
-module.exports = withContentlayer(withMDX(nextConfig)) 
+module.exports = withContentlayer(nextConfig) 
