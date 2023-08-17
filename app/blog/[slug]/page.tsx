@@ -10,8 +10,11 @@ const getPostContent = (slug: string) => {
   return content;
 };
 
-// Todo: change the type to its proper one
-export default function BlogPage({ params: { slug } }: any) {
+interface BlogPageProps {
+  params: { slug: string };
+}
+
+export default function BlogPage({ params: { slug } }: BlogPageProps) {
   const postContent = getPostContent(slug);
 
   return (

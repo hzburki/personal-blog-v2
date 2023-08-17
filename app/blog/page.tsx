@@ -1,22 +1,39 @@
 import fs from 'fs';
+import Link from 'next/link';
+import matter from 'gray-matter';
 
 import Divider from '@/components/divider.comp';
 import PostCard from '@/components/post-card.comp';
 import PageTitle from '@/components/typography/page-title.comp';
-import Link from 'next/link';
 
 const getPostMetaData = () => {
   const folder = 'posts/';
   const files = fs.readdirSync(folder);
   const markdownPosts = files.filter((file) => file.endsWith('.md'));
 
-  return {
-    slugs: markdownPosts.map((post) => post.replace('.md', '')),
-  };
+  const posts = markdownPosts.map((post) => {
+    const fileContent = fs.readFileSync(`${folder}/${post}`, 'utf8');
+    const grayMatter = matter(fileContent);
+    const slug = post.replace('.md', '');
+
+    return {
+      slug,
+      url: `/blog/${slug}`,
+      date: grayMatter.data.date,
+      tags: grayMatter.data.tags,
+      title: grayMatter.data.title,
+      image: grayMatter.data.image,
+      status: grayMatter.data.status,
+      categories: grayMatter.data.categories,
+      description: grayMatter.data.description,
+    };
+  });
+
+  return posts;
 };
 
 export default function Blog() {
-  const postMetaData = getPostMetaData();
+  const postList = getPostMetaData();
 
   return (
     <div className='py-8'>
@@ -24,12 +41,8 @@ export default function Blog() {
 
       <Divider height='h-20' />
 
-      {postMetaData.slugs.map((slug) => (
-        <ul key={slug}>
-          <li>
-            <Link href={`blog/${slug}`}>{slug}</Link>
-          </li>
-        </ul>
+      {postList.map((postInfo) => (
+        <PostCard key={postInfo.slug} post={postInfo} />
       ))}
     </div>
   );
