@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className='flex flex-col  px-0 py-4 sm:flex-row sm:justify-between sm:px-4 xl:px-0'>
+    <header className='flex flex-col px-0 py-4 sm:flex-row sm:justify-between sm:px-4 xl:px-0'>
       {/* Left Container */}
-      <div className='mb-2 flex justify-center text-2xl sm:mb-0 sm:justify-start'>
+      <div className='flex justify-center pb-2 text-2xl shadow sm:justify-start sm:pb-0 sm:shadow-none'>
         <Link href='/' className='font-shantell-sans hover:font-semibold'>
           hzburki.com
         </Link>

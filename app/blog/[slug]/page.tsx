@@ -38,7 +38,7 @@ export default function BlogPage({ params: { slug } }: BlogPageProps) {
   const post = getPostContent(slug);
 
   return (
-    <article className='prose flex w-full max-w-none flex-col items-center justify-center py-8'>
+    <div className='prose flex w-full max-w-none flex-col items-center justify-center py-8'>
       <Image
         alt={slug}
         width={1024}
@@ -57,9 +57,9 @@ export default function BlogPage({ params: { slug } }: BlogPageProps) {
         {new Date(post.data.date).toLocaleDateString()}
       </time>
 
-      <div className='p-4 lg:px-0'>
+      <article className='p-2 lg:px-0'>
         <Markdown>{post.content}</Markdown>
-      </div>
-    </article>
+      </article>
+    </div>
   );
 }
