@@ -20,19 +20,19 @@ interface BlogPageProps {
 
 // Create static pages for all blog posts
 // Todo: Make this logic re-usable. Its also used in the blog list page
-// export const generateStaticParams = () => {
-//   const folder = 'posts/';
-//   const files = fs.readdirSync(folder);
+export const generateStaticParams = () => {
+  const folder = 'posts/';
+  const files = fs.readdirSync(folder);
 
-//   return files
-//     .filter((file) => file.endsWith('.md'))
-//     .map((file) => {
-//       const slug = file.replace('.md', '');
-//       return {
-//         params: { slug },
-//       };
-//     });
-// };
+  return files
+    .filter((file) => file.endsWith('.md'))
+    .map((file) => {
+      const slug = file.replace('.md', '');
+      return {
+        params: { slug },
+      };
+    });
+};
 
 export default function BlogPage({ params: { slug } }: BlogPageProps) {
   const post = getPostContent(slug);
