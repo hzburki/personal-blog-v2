@@ -3,6 +3,6 @@ import Header from './header.comp';
 import Footer from './footer.comp';
 
 // Blog Components
-import PostCard from './post-card.comp';
+import BlogCard from './blog-card.comp';
 
-export { Header, Footer, PostCard }
+export { Header, Footer, BlogCard }

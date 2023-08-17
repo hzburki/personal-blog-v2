@@ -2,7 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 
 import Divider from '@/components/divider.comp';
-import PostCard from '@/components/post-card.comp';
+import BlogCard from '@/components/blog-card.comp';
 import PageTitle from '@/components/typography/page-title.comp';
 
 const getPostMetaData = () => {
@@ -38,13 +38,13 @@ export default function Blog() {
   const postList = getPostMetaData();
 
   return (
-    <div className='py-8'>
+    <div className='w-full py-8'>
       <PageTitle text='My Blog' />
 
       <Divider height='h-20' />
 
       {postList.map((postInfo) => (
-        <PostCard key={postInfo.slug} post={postInfo} />
+        <BlogCard key={postInfo.slug} post={postInfo} />
       ))}
     </div>
   );
