@@ -5,6 +5,7 @@
 - [x] Transfer Blogs 
    - [x] Create the blog list page
    - [x] Create the single blog page
+- [ ] Create Blog Components
 - [ ] Create Journey page
 - [ ] UI/UX Consistency 
 - [ ] Add the `head.tsx` file
