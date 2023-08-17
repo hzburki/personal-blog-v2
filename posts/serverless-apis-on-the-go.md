@@ -60,24 +60,17 @@ Now, it’s easy to get confused between Serverless Architecture and Framework. 
 
 In our particular case serverless manages the following resources;
 
-# Image Start Here
-
-<img
-  src='serverless_flow_diagram.png'
-  alt='Serverless Framework converting code into product'
-/>
-
-# Image End Here
+![Serverless Framework converting code into product](/post-images/serverless-flow-diagram.png)
 
 ### Step 1
 
 Serverless used “AWS Cloud Formation” to create a stack of all the resources we need. We can use the serverless cli to create and deploy these resources with;
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"shell","mime":"text/x-sh","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"Shell","modeName":"shell"}">serverless deploy
+```bash
+serverless deploy
 ```
 
-</div>### Step 2
+### Step 2
 
 The stack consists of Lambda functions which run our code. Lambda functions are event based, which means they can be triggered with an HTTP request, which is ideal since we’re making an API.
 
@@ -95,52 +88,50 @@ The app we’re building is only for demonstration. It has three entities namely
 
 1. The first thing you need to do install serverless-cli with
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"shell","mime":"text/x-sh","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"Shell","modeName":"shell"}">npm install -g serverless
+```bash
+npm install -g serverless
 ```
 
-</div>2. Then you’ll have to configure serverless with AWS. You can look up the details [here](https://serverless.com/framework/docs/providers/aws/guide/credentials#using-aws-profiles).
+2. Then you’ll have to configure serverless with AWS. You can look up the details [here](https://serverless.com/framework/docs/providers/aws/guide/credentials#using-aws-profiles).
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"shell","mime":"text/x-sh","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"Shell","modeName":"shell"}">serverless config credentials --provider aws --key AWS_ACCESS_KEY --secret AWS_SECRET_KEY
+```bash
+serverless config credentials --provider aws --key AWS_ACCESS_KEY --secret AWS_SECRET_KEY
 ```
 
-</div>3. Create a new serverless project
+3. Create a new serverless project
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"shell","mime":"text/x-sh","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"Shell","modeName":"shell"}">serverless create --template aws-nodejs --path PROJECT_NAME
+```bash
+serverless create --template aws-nodejs --path PROJECT_NAME
 ```
+- **template** → used to define which provider and language you want to choose. There are various templates pre-created. You can see them at serverless.com
 
-</div>- **template** → used to define which provider and language you want to choose. There are various templates pre-created. You can see them at serverless.com
 - **path** → sets the project/service name
 
-<div aria-hidden='true' class='wp-block-spacer' style='height:10px'></div>4. Next
-just cd into your project and setup npm
+4. Next just cd into your project and setup npm
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"shell","mime":"text/x-sh","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"Shell","modeName":"shell"}">cd PROJECT_NAME && npm init -y
+```bash
+cd PROJECT_NAME && npm init -y
 ```
 
-</div>5. Install project dependencies
+5. Install project dependencies
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"shell","mime":"text/x-sh","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"Shell","modeName":"shell"}">npm install express body-parser sequelize mysql2 dotenv serverless-http2npm install —save-dev serverless-offline serverless-dotenv-plugin
+```bash
+npm install express body-parser sequelize mysql2 dotenv serverless-http2npm install —save-dev serverless-offline serverless-dotenv-plugin
 ```
 
-</div>I won’t tell you about all the dependencies, just the ones related to serverless, you might not be familiar with;
+I won’t tell you about all the dependencies, just the ones related to serverless, you might not be familiar with;
 
 - **serverless-http** → Basically a wrapper around your API (built with express, happi, Koa, etc.)
 - **serverless-offline** → Allows developing and testing code on your local machine
 - **serverless-dotenv-plugin** → Enables us to use .env files for defining environmental variables
 
-<div aria-hidden='true' class='wp-block-spacer' style='height:10px'></div>### serverless.yml
+### serverless.yml
 
 At this point there should be a file named “serverless.yml”. You will declare any and all resources you want to utilize in your application within this file. Serverless Framework will take care of creating and deploying those services using AWS Cloud Formation on its own.
 
 After ridding the file of comments, change it to the template below
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"yaml","mime":"text/x-yaml","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"YAML","modeName":"yaml"}"># Happy Coding!
+```bash
 service: serverless-node
 provider:
   name: aws
@@ -186,15 +177,14 @@ plugins:
   - serverless-dotenv-plugin
 ```
 
-</div>Let’s break this file down
+Let’s break this file down
 
 - **service** → name of your project
 - **provider** → contains some general configurations for the whole project
 - **functions** → containers where your API will live
 - **plugins** → npm packages for serverless
 
-<div aria-hidden='true' class='wp-block-spacer' style='height:10px'></div>I’ll expand
-further on “functions”
+I’ll expand further on “functions”
 
 - **api** → name of the lambda function
 - **handler** → entry point of the lambda function. Its declared as file.function
@@ -212,20 +202,20 @@ to handle routing rather than API Gateway.
 
 Now as with any NodeJS project, the first thing we need to do, is create a server. We know that “function_name.index” is the entry point to our functions, so this is where we’ll initialize the express framework and handle routing.
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"javascript","mime":"application/javascript","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"JavaScript","modeName":"js"}">const express = require("express")
-const bodyParser = require("body-parser")
-const serverless = require("serverless-http")
-const app = express()
-/* Body Parser */
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
-/*
- * ==================
- * API Routes Go Here
- * ==================
- */
-module.exports.index = serverless(app)
+```bash
+  const express = require("express")
+  const bodyParser = require("body-parser")
+  const serverless = require("serverless-http")
+  const app = express()
+  /* Body Parser */
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({ extended: false }))
+  /*
+  * ==================
+  * API Routes Go Here
+  * ==================
+  */
+  module.exports.index = serverless(app)
 ```
 
 </div>In our case we have three functions, namely; user, comment, post one for each entity. We’ll use the same file layout to create three lambda functions, as is defined in serverless.yml.
@@ -250,8 +240,7 @@ To understand why this happens lets look at a Lambda’s lifecycle;
 4. Run your Code
 5. Reclaim container
 
-<div aria-hidden='true' class='wp-block-spacer' style='height:10px'></div>Now every
-time your code runs, a new container is provisioned which does not have the context
+Now every time your code runs, a new container is provisioned which does not have the context
 of the previous execution, so we can’t re-use database connections.
 
 ### There is still hope 😌
@@ -262,8 +251,8 @@ However, AWS docs very clearly point out that there is no certainty this will al
 
 ### dbCon.js
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"javascript","mime":"text/javascript","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"JavaScript","modeName":"js"}">const Sequelize = require("sequelize")
+```bash
+const Sequelize = require("sequelize")
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USERNAME,
@@ -310,7 +299,7 @@ module.exports = async () => {
 }
 ```
 
-</div>Lambda functions freeze their state for a max 15 mins after code execution. In this time anything declared “outside” the function itself is maintained.
+Lambda functions freeze their state for a max 15 mins after code execution. In this time anything declared “outside” the function itself is maintained.
 
 The container maintains the state of the “connection” object and sequelize connection because they are defined outside the lambda function. Now, whenever the container is re-used, we simply use a conditional — if — to check whether a database connection exists or do we need to create a new one.
 
@@ -320,38 +309,29 @@ I tried a couple of different approaches, without getting satisfactory results. 
 
 Serverless Framework makes deployment a breeze. If you’ve got everything else setup just run the following command
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"shell","mime":"text/x-sh","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"Shell","modeName":"shell"}">serverless deploy --env dev --stage qa
+```bash
+serverless deploy --env dev --stage qa
 ```
 
-</div>- **–env** → enable using specific env variables only
+- **–env** → enable using specific env variables only
 - **–stage** → enables deploying to specific environment only
 
-<div aria-hidden='true' class='wp-block-spacer' style='height:10px'></div>
-<div class='wp-block-image ticss-3f111846'>
-  <figure class='aligncenter size-large is-resized'>
-    ![](http://hzburki.com/wp-content/uploads/2022/08/1_FCG_nEwCZ2asiqvKiF3WTw-1024x837.png)
-    <figcaption>deploy your code with serverless</figcaption>
-  </figure>
-</div>
-#### Remove your Code
+![deploy your code with serverless](/post-images/deploy-serverless.png)
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"shell","mime":"text/x-sh","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"Shell","modeName":"shell"}">serverless remove
+### Remove your Code
+
+```bash
+serverless remove
 ```
 
-</div>The above command removes all AWS resources used in your application. Adding “ — stage” will remove only the specified API Gateway stage and related resources.
+The above command removes all AWS resources used in your application. Adding “ — stage” will remove only the specified API Gateway stage and related resources.
 
 ## Results
 
 Below are the metrics as shown by CloudWatch in the AWS console, after invoking each lambda 500 times via Postman.
 
-<div class='wp-block-image ticss-cdea7861'>
-  <figure class='aligncenter size-large is-resized'>
-    ![](http://hzburki.com/wp-content/uploads/2022/08/1_nUJt04xRO4x0d3ZcjYbcnQ-1024x451.png)
-    <figcaption>–</figcaption>
-  </figure>
-</div>
+![](/post-images/lambda-results.png)
+
 This is my approach to setting up a production ready API using Serverless Framework.
 Once again you use any language you prefer with any database. With slight modifications
 you can even use MongoDB.

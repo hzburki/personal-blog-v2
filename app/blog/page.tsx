@@ -1,14 +1,22 @@
-import { compareDesc } from 'date-fns';
-import { allPosts } from 'contentlayer/generated';
+import fs from 'fs';
 
+import Divider from '@/components/divider.comp';
 import PostCard from '@/components/post-card.comp';
 import PageTitle from '@/components/typography/page-title.comp';
-import Divider from '@/components/divider.comp';
+import Link from 'next/link';
+
+const getPostMetaData = () => {
+  const folder = 'posts/';
+  const files = fs.readdirSync(folder);
+  const markdownPosts = files.filter((file) => file.endsWith('.md'));
+
+  return {
+    slugs: markdownPosts.map((post) => post.replace('.md', '')),
+  };
+};
 
 export default function Blog() {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
+  const postMetaData = getPostMetaData();
 
   return (
     <div className='py-8'>
@@ -16,8 +24,12 @@ export default function Blog() {
 
       <Divider height='h-20' />
 
-      {posts.map((post, index) => (
-        <PostCard key={index} {...post} />
+      {postMetaData.slugs.map((slug) => (
+        <ul key={slug}>
+          <li>
+            <Link href={`blog/${slug}`}>{slug}</Link>
+          </li>
+        </ul>
       ))}
     </div>
   );

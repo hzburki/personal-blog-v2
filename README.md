@@ -7,6 +7,7 @@
    - [ ] Create the single blog page
 - [ ] Create the about page
 - [ ] UI/UX Consistency 
+- [ ] Add the `head.tsx` file
 
 ## VSCode Extensions & Third Party Packages
 

@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { format, parseISO } from 'date-fns';
-import { Post } from 'contentlayer/generated';
 
-function PostCard(post: Post) {
+function PostCard(post: any) {
   return (
     <Link
       href={post.url}
@@ -25,7 +23,7 @@ function PostCard(post: Post) {
             dateTime={post.date}
             className='mb-2 block text-xs text-gray-600'
           >
-            {format(parseISO(post.date), 'LLLL d, yyyy')}
+            {post.date}
           </time>
 
           <div

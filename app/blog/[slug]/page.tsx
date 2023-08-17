@@ -1,34 +1,22 @@
-// app/posts/[slug]/page.tsx
-import { format, parseISO } from 'date-fns';
-import { allPosts } from 'contentlayer/generated';
+import fs from 'fs';
+import React from 'react';
+import Markdown from 'markdown-to-jsx';
 
-export const generateStaticParams = async () =>
-  allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
+const getPostContent = (slug: string) => {
+  const folder = 'posts';
+  const file = `${folder}/${slug}.md`;
+  const content = fs.readFileSync(file, 'utf8');
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
-  return { title: post.title };
+  return content;
 };
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
+// Todo: change the type to its proper one
+export default function BlogPage({ params: { slug } }: any) {
+  const postContent = getPostContent(slug);
 
   return (
-    <article className='prose max-w-none py-8'>
-      <div className='mb-8 text-center'>
-        <time dateTime={post.date} className='mb-1 text-xs text-gray-600'>
-          {format(parseISO(post.date), 'LLLL d, yyyy')}
-        </time>
-        <h1 className='text-3xl font-bold'>{post.title}</h1>
-      </div>
-      <div
-        className='[&>*:last-child]:mb-0 [&>*]:mb-3'
-        dangerouslySetInnerHTML={{ __html: post.body.html }}
-      />
+    <article className='prose w-full max-w-none py-8'>
+      <Markdown>{postContent}</Markdown>;
     </article>
   );
-};
-
-export default PostLayout;
+}

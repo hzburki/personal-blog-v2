@@ -15,12 +15,7 @@ categories:
   - blog-post
 ---
 
-<div class='wp-block-image ticss-bb6a3bc8'>
-  <figure class='aligncenter size-large'>
-    ![](http://hzburki.com/wp-content/uploads/2019/10/Configure-SSL-Certificate-%E2%80%94-AWS-Elastic-Beanstalk-Single-Instance-1024x576.jpg)
-  </figure>
-</div>
-- - - - - -
+![](http://hzburki.com/wp-content/uploads/2019/10/Configure-SSL-Certificate-%E2%80%94-AWS-Elastic-Beanstalk-Single-Instance-1024x576.jpg)
 
 SSL secures data transfer between the client and the server-side. Not only that, it also increases your website’s Google ranking, so it’s the say that SSL certificates are a _MUST_ have when building applications.
 
@@ -40,20 +35,20 @@ Well, that’s mildly annoying 😒 but don’t worry we can still provision a f
 
 The first step is to say goodbye to your load balancer. Convert your instance type to `single instance` from “load balanced.” You can do this from the _Capacity_ tab inside _Configurations_. Just choose single instance in the environment type and that’s it.
 
-## <div class="wp-block-image"><figure class="aligncenter size-large">![](http://hzburki.com/wp-content/uploads/2022/08/1_ZpuT8WRGcq9mWVYY0gNByQ-1024x471.png)<figcaption>_Elastic Beanstalk Configuration Tab_</figcaption></figure></div>2) Certbot
+![](http://hzburki.com/wp-content/uploads/2022/08/1_ZpuT8WRGcq9mWVYY0gNByQ-1024x471.png)
 
 The second step is creating and signing the certificate using “certbot”. You can find it [here](https://certbot.eff.org/). I should mention that you’ll need a domain to use the certificate on.
 
 Open up the terminal on your local machine, I’m using mac so some of the commands might be a little different for you.
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"shell","mime":"text/x-sh","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"Shell","modeName":"shell"}">certbot certonly --manual -d domain.com --preferred-challenges dns
+```sh
+certbot certonly --manual -d domain.com --preferred-challenges dns
 ```
 
-</div>- ***“certonly”***: use certbot authenticators
-- ***“manual”***: generate certificates on machines other than web servers.
-- ***“d”***: specify a domain
-- ***“preferred-challenges”***: a method for domain verification
+- **_“certonly”_**: use certbot authenticators
+- **_“manual”_**: generate certificates on machines other than web servers.
+- **_“d”_**: specify a domain
+- **_“preferred-challenges”_**: a method for domain verification
 
 The cli will ask you to allow to log your machine’s IP address. You have to agree to continue.
 
@@ -61,11 +56,11 @@ After that, it’ll ask you to deploy a DNS TXT record with the name _\_acme-cha
 
 On successfully creating the certificate the cli will spit out two files “privkey.pem” &amp; “fullchain.pem”.
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"shell","mime":"text/x-sh","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"Shell","modeName":"shell"}">certbot certificates
+```sh
+certbot certificates
 ```
 
-</div>You can use the above command to list all the certificates along with paths to their files.
+You can use the above command to list all the certificates along with paths to their files.
 
 3. .ebextensions
 
@@ -75,8 +70,8 @@ Okay so we’re nearly there, the third and last step is enabling HTTPS for your
 
 Create a folder named **_.ebextensions_**, it is important that the name be exactly the same. Then create a configuration file with the extension **_“.config”_**.
 
-<div class="wp-block-codemirror-blocks-code-block code-block">```
-<pre class="CodeMirror" data-setting="{"mode":"yaml","mime":"text/x-yaml","theme":"material","lineNumbers":false,"styleActiveLine":false,"lineWrapping":false,"readOnly":true,"showPanel":false,"hasCustomCSS":false,"customCSS":"","language":"YAML","modeName":"yaml"}">Resources:
+```sh
+Resources:
   sslSecurityGroupIngress:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
@@ -137,7 +132,7 @@ files:
     authentication: S3Access
 ```
 
-</div>- **“packages”** key installs mod24\_ssl on the instance.
+- **“packages”** key installs mod24_ssl on the instance.
 - **“files”** key is used to create files which hold the certificate, certificate chain and private key that certbot created.
 
 ## **Note:**
@@ -150,10 +145,7 @@ Now all you have to do is deploy your code to Elastic Beanstalk. Make sure that 
 
 > Aaand Voilà!!! **A+** rating for your very own, free of cost SSL Certificate. You can test your SSL certificate at [ssllabs.com](https://www.ssllabs.com/ssltest/).
 
-<div class='wp-block-image'>
-  <figure class='aligncenter size-large'>
-    ![](http://hzburki.com/wp-content/uploads/2022/08/1_lU5YNe-S1O7nN-XlYrptNg-1024x598.png)
-    <figcaption>*nuff’ said 😎😎😎*</figcaption>
-  </figure>
-</div>
-- - - - - -
+![](http://hzburki.com/wp-content/uploads/2022/08/1_lU5YNe-S1O7nN-XlYrptNg-1024x598.png)
+nuff’ said 😎😎😎
+
+---
