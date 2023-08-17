@@ -15,8 +15,6 @@ categories:
   - blog-post
 ---
 
-![](http://hzburki.com/wp-content/uploads/2019/10/Configure-SSL-Certificate-%E2%80%94-AWS-Elastic-Beanstalk-Single-Instance-1024x576.jpg)
-
 SSL secures data transfer between the client and the server-side. Not only that, it also increases your website’s Google ranking, so it’s the say that SSL certificates are a _MUST_ have when building applications.
 
 AWS provides a very convenient solution called “AWS Certificate Manager” (ACM). It provides _free_ public SSL certificates that you can connect to your load balanced Elastic Beanstalk (EB) instances.
@@ -29,13 +27,13 @@ After all, a single low-cost instance will suffice. We’ll just generate a cert
 
 Well, that’s mildly annoying 😒 but don’t worry we can still provision a free SSL certificate without enduring unnecessary load balancer expenses, in three easy steps.
 
-1. Elastic Beanstalk
-
----
+## 1. Elastic Beanstalk
 
 The first step is to say goodbye to your load balancer. Convert your instance type to `single instance` from “load balanced.” You can do this from the _Capacity_ tab inside _Configurations_. Just choose single instance in the environment type and that’s it.
 
-![](http://hzburki.com/wp-content/uploads/2022/08/1_ZpuT8WRGcq9mWVYY0gNByQ-1024x471.png)
+![Elastic Beanstalk Configuration Tab](/post-images/beanstalk-config-screen.png)
+
+## 2. Certbot
 
 The second step is creating and signing the certificate using “certbot”. You can find it [here](https://certbot.eff.org/). I should mention that you’ll need a domain to use the certificate on.
 
@@ -62,9 +60,7 @@ certbot certificates
 
 You can use the above command to list all the certificates along with paths to their files.
 
-3. .ebextensions
-
----
+## 3. .ebextensions
 
 Okay so we’re nearly there, the third and last step is enabling HTTPS for your “single instance” by allowing traffic on port 443.
 
@@ -145,7 +141,6 @@ Now all you have to do is deploy your code to Elastic Beanstalk. Make sure that 
 
 > Aaand Voilà!!! **A+** rating for your very own, free of cost SSL Certificate. You can test your SSL certificate at [ssllabs.com](https://www.ssllabs.com/ssltest/).
 
-![](http://hzburki.com/wp-content/uploads/2022/08/1_lU5YNe-S1O7nN-XlYrptNg-1024x598.png)
-nuff’ said 😎😎😎
+![nuff’ said 😎😎😎](post-images/ssl-cert-results.png)
 
 ---

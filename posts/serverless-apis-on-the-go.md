@@ -17,7 +17,7 @@ categories:
   - blog-post
 ---
 
-This is a highly opinionated blog post. Don’t catch on fire if you don’t agree. You have been Warned!
+> This is a highly opinionated blog post. Don’t catch on fire if you don’t agree. You have been Warned!
 
 If you’re a developer of any sort, chances are you’ve heard of the term “Serverless” and know what it means. That’s why I’m not going to explain what serverless architecture is, rather I’m going to talk about some tools you can use to get started with serverless and create production ready APIs.
 
@@ -32,7 +32,7 @@ If you’re a developer of any sort, chances are you’ve heard of the term “S
 7. AWS CloudFormation
 8. AWS API Gateway
 
-The most important resource here is “Serverless Framework”, but more about that in the next sectionThis is a highly opinionated blog post.
+> The most important resource here is “Serverless Framework”, but more about that in the next sectionThis is a highly opinionated blog post.
 
 So basically the choice boils down to three things; language, database and cloud service provider. My choice of poison is NodeJS (ExpressJS) with a MySQL Database hosted on AWS Lambda Functions. But you can do anything like;
 
@@ -82,9 +82,9 @@ I think you get the gist of it. Let’s get our hands dirty with some actual cod
 
 ## Let’s Get Coding
 
-Before you start, you will need an AWS account, even if its in the free tier.
-
-The app we’re building is only for demonstration. It has three entities namely; User, Posts and Comments. I think everyone will be quite clear about the purpose of each entity and their relations among each other. You can find the code repo [here](https://github.com/hzburki/serverless).
+> Before you start, you will need an AWS account, even if its in the free tier.
+> 
+> The app we’re building is only for demonstration. It has three entities namely; User, Posts and Comments. I think everyone will be quite clear about the purpose of each entity and their relations among each other. You can find the code repo [here](https://github.com/hzburki/serverless).
 
 1. The first thing you need to do install serverless-cli with
 
@@ -193,8 +193,7 @@ I’ll expand further on “functions”
 - **method** → all method types
 - **cors** → enable CORS
 
-<div aria-hidden='true' class='wp-block-spacer' style='height:10px'></div>Right now
-we have three lambda functions which can be triggered on any route matching the “path”
+Right now we have three lambda functions which can be triggered on any route matching the “path”
 values for all HTTP methods. This is perfect of our scenario because we want ExpressJS
 to handle routing rather than API Gateway.
 
@@ -218,15 +217,15 @@ Now as with any NodeJS project, the first thing we need to do, is create a serve
   module.exports.index = serverless(app)
 ```
 
-</div>In our case we have three functions, namely; user, comment, post one for each entity. We’ll use the same file layout to create three lambda functions, as is defined in serverless.yml.
+In our case we have three functions, namely; user, comment, post one for each entity. We’ll use the same file layout to create three lambda functions, as is defined in serverless.yml.
 
-**Note:** The name of the files (holding lambda functions) and the methods exported should be exactly the same as defined in serverless.yml.
+> **Note:** The name of the files (holding lambda functions) and the methods exported should be exactly the same as defined in serverless.yml.
 
 ### Database Connections
 
 One major issue I faced was re-using database connection. Initially each time I hit an endpoint a new database connection would be created. I had to manually close connections at the end of each function.
 
-This means our database connections will increase linearly and add unnecessary overhead by creating new connection every time 😥😥😥
+> This means our database connections will increase linearly and add unnecessary overhead by creating new connection every time 😥😥😥
 
 ### Why This Happens ??
 
@@ -247,7 +246,7 @@ of the previous execution, so we can’t re-use database connections.
 
 AWS keeps the container running for maximum 15mins after code execution, so subsequent requests run on the same container and your database connection can be re-used.
 
-However, AWS docs very clearly point out that there is no certainty this will always be the case.
+> However, AWS docs very clearly point out that there is no certainty this will always be the case.
 
 ### dbCon.js
 
@@ -299,11 +298,11 @@ module.exports = async () => {
 }
 ```
 
-Lambda functions freeze their state for a max 15 mins after code execution. In this time anything declared “outside” the function itself is maintained.
+> Lambda functions freeze their state for a max 15 mins after code execution. In this time anything declared “outside” the function itself is maintained.
 
 The container maintains the state of the “connection” object and sequelize connection because they are defined outside the lambda function. Now, whenever the container is re-used, we simply use a conditional — if — to check whether a database connection exists or do we need to create a new one.
 
-I tried a couple of different approaches, without getting satisfactory results. Then found the above approach in [Adnan Rahić’s blog post](https://hackernoon.com/a-crash-course-on-serverless-with-aws-building-apis-with-lambda-and-aurora-serverless-49885c46e37a).
+> I tried a couple of different approaches, without getting satisfactory results. Then found the above approach in [Adnan Rahić’s blog post](https://hackernoon.com/a-crash-course-on-serverless-with-aws-building-apis-with-lambda-and-aurora-serverless-49885c46e37a).
 
 ## Deploy your Code
 
@@ -313,8 +312,8 @@ Serverless Framework makes deployment a breeze. If you’ve got everything else 
 serverless deploy --env dev --stage qa
 ```
 
-- **–env** → enable using specific env variables only
-- **–stage** → enables deploying to specific environment only
+- **--env** → enable using specific env variables only
+- **–-stage** → enables deploying to specific environment only
 
 ![deploy your code with serverless](/post-images/deploy-serverless.png)
 
@@ -338,6 +337,4 @@ you can even use MongoDB.
 
 There are other alternatives like DynamoDB and AWS Aurora Serverless, which are made with serverless architecture in mind.
 
-I think these are the best set of tools available right now, if anyone wants to get into the serverless game.
-
----
+> I think these are the best set of tools available right now, if anyone wants to get into the serverless game.
