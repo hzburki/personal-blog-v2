@@ -1,5 +1,4 @@
 import fs from 'fs';
-import Link from 'next/link';
 import matter from 'gray-matter';
 
 import Divider from '@/components/divider.comp';
@@ -13,19 +12,22 @@ const getPostMetaData = () => {
 
   const posts = markdownPosts.map((post) => {
     const fileContent = fs.readFileSync(`${folder}/${post}`, 'utf8');
-    const grayMatter = matter(fileContent);
+    const frontMatter = matter(fileContent);
     const slug = post.replace('.md', '');
+
+    const { date, tags, title, image, status, categories, description } =
+      frontMatter.data;
 
     return {
       slug,
+      date,
+      tags,
+      title,
+      image,
+      status,
+      categories,
+      description,
       url: `/blog/${slug}`,
-      date: grayMatter.data.date,
-      tags: grayMatter.data.tags,
-      title: grayMatter.data.title,
-      image: grayMatter.data.image,
-      status: grayMatter.data.status,
-      categories: grayMatter.data.categories,
-      description: grayMatter.data.description,
     };
   });
 

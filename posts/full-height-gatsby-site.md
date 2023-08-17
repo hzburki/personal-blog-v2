@@ -19,15 +19,11 @@ categories:
 
 A simple UI containing a header, main and footer. The footer should stick to the bottom if content above it (main) does not fill the whole view and get pushed down if the content (main) exceeds the view height.
 
-![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
-
-![](https://hzburki.com/wp-content/uploads/2022/08/9nmvdxs1nvu995y6zh0d-1024x584.png)
+![](/post-images/what-we-have.png)
 
 what we have!
 
-![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
-
-![](https://hzburki.com/wp-content/uploads/2022/08/cw5bmw5znid8bpqpmlao-1024x585.png)
+![](/post-images/what-we-want.png)
 
 what we want.
 
@@ -37,9 +33,7 @@ Gatsby uses [@reach/router](https://github.com/reach/router) which wraps the 
 
 **But!!! 😮😮😮**
 
-![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
-
-![](https://hzburki.com/wp-content/uploads/2022/08/iho2sk8cs1n1x1ax2wel-1024x476.png)
+![](/post-images/additional-div-highlighted.png)
 
 additional div highlighted
 
@@ -53,30 +47,67 @@ Well the **real solution** is actually still the same, we need to assign a `h
 
 - Create a new css file and name it `global.css`. I’ve put it in a separate styles folder in my repo.
 
-/\* \* Purpose: \* Assign height: "100%" to \* html, body, #\_\_\_gatsby & \* div with role="group"
-\*/
-html, body, #\_\_\_gatsby {
-height: 100%;
+```js
+/*
+ * Purpose:
+ * Assign height: "100%" to
+ * html, body, #___gatsby &
+ * div with role="group"
+*/
+html, body, #___gatsby {
+    height: 100%;
 }
 body {
-margin: 0px;
+    margin: 0px;
 }
-div\[role="group"\]\[tabindex\] {
-height: 100%;
+div[role="group"][tabindex] {
+    height: 100%;
 }
+```
 
 - In the root of your directory, look for `gatsby-browser.js` and import `global.css`.
 
+```js
+import "./src/styles/global.css"
+```
+
 - I like to start my projects from scratch. This is my take on `Layout` Component.
+
+```js
+<div
+  style={{
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <header>
+    <Header siteTitle={data.site.siteMetadata.title} />
+  </header>
+  <main
+    style={{
+      backgroundColor: "pink",
+      flexGrow: 1,
+    }}
+  >
+    {children}
+  </main>
+  <footer
+    style={{
+      backgroundColor: "aquamarine",
+    }}
+  >
+    © {new Date().getFullYear()}, Built with
+    {` `}
+    <a href="https://www.gatsbyjs.org">Gatsby</a>
+  </footer>
+</div>
+```
 
 # The Result as Promised !!
 
-![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
-
-![](https://hzburki.com/wp-content/uploads/2022/08/z1cdwannqfd42xs7vqrx.gif)
+![](/post-images/result-as-promised.gif)
 
 The footer is now pushed down by the content.
 
 This solution is based on a [github thread](https://github.com/gatsbyjs/gatsby/issues/7310).
-
----

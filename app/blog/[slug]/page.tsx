@@ -1,5 +1,6 @@
 import fs from 'fs';
 import React from 'react';
+import matter from 'gray-matter';
 import Markdown from 'markdown-to-jsx';
 
 const getPostContent = (slug: string) => {
@@ -7,19 +8,36 @@ const getPostContent = (slug: string) => {
   const file = `${folder}/${slug}.md`;
   const content = fs.readFileSync(file, 'utf8');
 
-  return content;
+  const frontMatter = matter(content);
+  return frontMatter;
 };
 
 interface BlogPageProps {
   params: { slug: string };
 }
 
+// Create static pages for all blog posts
+// Todo: Make this logic re-usable. Its also used in the blog list page
+export const generateStaticParams = () => {
+  const folder = 'posts/';
+  const files = fs.readdirSync(folder);
+
+  return files
+    .filter((file) => file.endsWith('.md'))
+    .map((file) => {
+      const slug = file.replace('.md', '');
+      return {
+        params: { slug },
+      };
+    });
+};
+
 export default function BlogPage({ params: { slug } }: BlogPageProps) {
-  const postContent = getPostContent(slug);
+  const post = getPostContent(slug);
 
   return (
     <article className='prose w-full max-w-none py-8'>
-      <Markdown>{postContent}</Markdown>;
+      <Markdown>{post.content}</Markdown>
     </article>
   );
 }
