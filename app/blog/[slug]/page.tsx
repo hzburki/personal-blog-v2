@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import matter from 'gray-matter';
 import Markdown from 'markdown-to-jsx';
+
 import SectionTitle from '@/components/typography/section-title.comp';
 
 const getPostContent = (slug: string) => {
