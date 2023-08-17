@@ -23,7 +23,7 @@ function BlogCard({ post }: BlogCardProps) {
           width={450}
           height={100}
           src={`${post.image}`}
-          className='shadow transition-shadow duration-200 group-hover:shadow-xl sm:rounded-lg'
+          className='mb-2 shadow transition-shadow duration-200 group-hover:shadow-xl sm:rounded-lg lg:mb-0'
         />
 
         <div className='flex flex-col items-center justify-center px-4 lg:items-start'>
