@@ -11,8 +11,6 @@ interface BlogCardProps {
   };
 }
 
-//
-
 function BlogCard({ post }: BlogCardProps) {
   return (
     <Link
