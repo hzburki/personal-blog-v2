@@ -2,10 +2,10 @@
 
 ## To Do
 
-- [ ] Transfer Blogs 
-   - [ ] Create the blog list page
-   - [ ] Create the single blog page
-- [ ] Create the about page
+- [x] Transfer Blogs 
+   - [x] Create the blog list page
+   - [x] Create the single blog page
+- [ ] Create Journey page
 - [ ] UI/UX Consistency 
 - [ ] Add the `head.tsx` file
 

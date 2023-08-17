@@ -141,6 +141,6 @@ Now all you have to do is deploy your code to Elastic Beanstalk. Make sure that 
 
 > Aaand Voilà!!! **A+** rating for your very own, free of cost SSL Certificate. You can test your SSL certificate at [ssllabs.com](https://www.ssllabs.com/ssltest/).
 
-![nuff’ said 😎😎😎](post-images/ssl-cert-results.png)
+![nuff’ said 😎😎😎](/post-images/ssl-cert-results.png)
 
 ---
