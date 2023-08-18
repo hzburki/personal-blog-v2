@@ -36,7 +36,6 @@ export const generateStaticParams = () => {
       };
     });
 
-  console.log('slugs', slugs);
   return slugs;
 };
 
