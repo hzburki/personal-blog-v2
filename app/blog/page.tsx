@@ -8,7 +8,7 @@ import PageTitle from '@/components/typography/page-title.comp';
 
 const getPostMetaData = () => {
   // for reference: https://stackoverflow.com/questions/74924100/vercel-error-enoent-no-such-file-or-directory
-  const folder = path.join(process.cwd(), 'posts/');
+  const folder = path.join(process.cwd(), 'posts');
   const files = fs.readdirSync(folder);
 
   const markdownPosts = files.filter((file) => file.endsWith('.md'));
