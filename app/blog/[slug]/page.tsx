@@ -24,7 +24,7 @@ interface BlogPageProps {
 // Todo: Make this logic re-usable. Its also used in the blog list page
 export const generateStaticParams = () => {
   // for reference: https://stackoverflow.com/questions/74924100/vercel-error-enoent-no-such-file-or-directory
-  const folder = path.join(process.cwd(), 'posts/');
+  const folder = path.join(process.cwd(), 'posts');
   const files = fs.readdirSync(folder);
 
   return files
