@@ -6,6 +6,7 @@ import Divider from '@/components/divider.comp';
 import BlogCard from '@/components/blog-card.comp';
 import PageTitle from '@/components/typography/page-title.comp';
 
+// Todo: Make this logic re-usable. Its also used in the blog list page
 const getPostMetaData = () => {
   // for reference: https://stackoverflow.com/questions/74924100/vercel-error-enoent-no-such-file-or-directory
   const folder = path.join(process.cwd(), 'posts');
