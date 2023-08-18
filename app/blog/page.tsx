@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import matter from 'gray-matter';
 
 import Divider from '@/components/divider.comp';
@@ -6,8 +7,10 @@ import BlogCard from '@/components/blog-card.comp';
 import PageTitle from '@/components/typography/page-title.comp';
 
 const getPostMetaData = () => {
-  const folder = 'posts/';
+  // for reference: https://stackoverflow.com/questions/74924100/vercel-error-enoent-no-such-file-or-directory
+  const folder = path.join(process.cwd(), 'posts');
   const files = fs.readdirSync(folder);
+
   const markdownPosts = files.filter((file) => file.endsWith('.md'));
 
   const posts = markdownPosts.map((post) => {

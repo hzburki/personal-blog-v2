@@ -1,8 +1,10 @@
 import fs from 'fs';
+import path from 'path';
 import React from 'react';
 import Image from 'next/image';
 import matter from 'gray-matter';
 import Markdown from 'markdown-to-jsx';
+
 import SectionTitle from '@/components/typography/section-title.comp';
 
 const getPostContent = (slug: string) => {
@@ -21,17 +23,20 @@ interface BlogPageProps {
 // Create static pages for all blog posts
 // Todo: Make this logic re-usable. Its also used in the blog list page
 export const generateStaticParams = () => {
-  const folder = 'posts/';
+  // for reference: https://stackoverflow.com/questions/74924100/vercel-error-enoent-no-such-file-or-directory
+  const folder = path.join(process.cwd(), 'posts');
   const files = fs.readdirSync(folder);
 
-  return files
+  const slugs = files
     .filter((file) => file.endsWith('.md'))
     .map((file) => {
       const slug = file.replace('.md', '');
       return {
-        params: { slug },
+        slug,
       };
     });
+
+  return slugs;
 };
 
 export default function BlogPage({ params: { slug } }: BlogPageProps) {
