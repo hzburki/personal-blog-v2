@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import React from 'react';
 import Image from 'next/image';
 import matter from 'gray-matter';
@@ -22,7 +23,8 @@ interface BlogPageProps {
 // Create static pages for all blog posts
 // Todo: Make this logic re-usable. Its also used in the blog list page
 export const generateStaticParams = () => {
-  const folder = 'posts/';
+  // for reference: https://stackoverflow.com/questions/74924100/vercel-error-enoent-no-such-file-or-directory
+  const folder = path.join(process.cwd(), 'posts/');
   const files = fs.readdirSync(folder);
 
   return files
