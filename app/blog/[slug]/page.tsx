@@ -27,14 +27,17 @@ export const generateStaticParams = () => {
   const folder = path.join(process.cwd(), 'posts');
   const files = fs.readdirSync(folder);
 
-  return files
+  const slugs = files
     .filter((file) => file.endsWith('.md'))
     .map((file) => {
       const slug = file.replace('.md', '');
       return {
-        params: { slug },
+        slug,
       };
     });
+
+  console.log('slugs', slugs);
+  return slugs;
 };
 
 export default function BlogPage({ params: { slug } }: BlogPageProps) {
