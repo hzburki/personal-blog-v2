@@ -24,8 +24,8 @@ const getPostMetaData = () => {
 
     return {
       slug,
-      date,
       tags,
+      date,
       title,
       image,
       status,

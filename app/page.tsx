@@ -23,7 +23,7 @@ export default function Home() {
       <div className='flex justify-center'>
         <Image
           alt='hzburki hey bitmoji'
-          className='h-60 w-auto rounded-e-full grayscale'
+          className='h-60 w-auto rounded-e-full'
           src={HI_THREE}
         />
       </div>

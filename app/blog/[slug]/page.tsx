@@ -6,6 +6,7 @@ import matter from 'gray-matter';
 import Markdown from 'markdown-to-jsx';
 
 import SectionTitle from '@/components/typography/section-title.comp';
+import { humanReadableDate } from '@/utils/date.utils';
 
 const getPostContent = (slug: string) => {
   const folder = 'posts';
@@ -40,7 +41,10 @@ export const generateStaticParams = () => {
 };
 
 export default function BlogPage({ params: { slug } }: BlogPageProps) {
-  const post = getPostContent(slug);
+  const {
+    content,
+    data: { image, title, date },
+  } = getPostContent(slug);
 
   return (
     <div className='prose flex w-full max-w-none flex-col items-center justify-center py-8'>
@@ -48,22 +52,16 @@ export default function BlogPage({ params: { slug } }: BlogPageProps) {
         alt={slug}
         width={1024}
         height={570}
-        src={post.data.image}
+        src={image}
         className='mb-0 lg:rounded-lg lg:shadow'
       />
 
-      <SectionTitle
-        size='h2'
-        text={post.data.title}
-        textPosition='text-center'
-      />
+      <SectionTitle size='h2' text={title} textPosition='text-center' />
 
-      <time dateTime={post.data.date}>
-        {new Date(post.data.date).toLocaleDateString()}
-      </time>
+      <time dateTime={date}>{humanReadableDate(date)}</time>
 
       <article className='p-2 lg:px-0'>
-        <Markdown>{post.content}</Markdown>
+        <Markdown>{content}</Markdown>
       </article>
     </div>
   );
