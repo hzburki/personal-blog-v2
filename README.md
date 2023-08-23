@@ -5,9 +5,16 @@
 - [x] Transfer Blogs 
    - [x] Create the blog list page
    - [x] Create the single blog page
-- [ ] Create Blog Components
+- [x] Create Blog Components
+   - [ ] Add a back button to the blog page
+   - [ ] Show human readable dates on Blog card and page.
+- [ ] Image Performance
+   - [ ] Image loading needs to have the blur hash effect.
+   - [ ] Add the blur hash effect for images inside the blog.    
+   - [ ] Fix CSS styling error for images in Blog page.
 - [ ] Create Journey page
-- [ ] UI/UX Consistency 
+   - [ ] Decide what and how to make. Find examples.  
+- [ ] UI/UX Consistency - Get it reviewed by a designer. 
 - [ ] Add the `head.tsx` file
 
 ## VSCode Extensions & Third Party Packages
