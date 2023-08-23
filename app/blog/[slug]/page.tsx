@@ -7,6 +7,7 @@ import Markdown from 'markdown-to-jsx';
 
 import SectionTitle from '@/components/typography/section-title.comp';
 import { humanReadableDate } from '@/utils/date.utils';
+import Link from 'next/link';
 
 const getPostContent = (slug: string) => {
   const folder = 'posts';
@@ -63,6 +64,10 @@ export default function BlogPage({ params: { slug } }: BlogPageProps) {
       <article className='p-2 lg:px-0'>
         <Markdown>{content}</Markdown>
       </article>
+
+      <Link href='/blog' className='text-lg no-underline hover:font-bold'>
+        &#8592; Go back
+      </Link>
     </div>
   );
 }
