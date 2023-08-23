@@ -8,6 +8,7 @@ import Markdown from 'markdown-to-jsx';
 import SectionTitle from '@/components/typography/section-title.comp';
 import { humanReadableDate } from '@/utils/date.utils';
 import Link from 'next/link';
+import Divider from '@/components/divider.comp';
 
 const getPostContent = (slug: string) => {
   const folder = 'posts';
@@ -48,7 +49,7 @@ export default function BlogPage({ params: { slug } }: BlogPageProps) {
   } = getPostContent(slug);
 
   return (
-    <div className='prose flex w-full max-w-none flex-col items-center justify-center py-8'>
+    <div className='flex flex-col items-center justify-center'>
       <Image
         alt={slug}
         width={1024}
@@ -57,15 +58,19 @@ export default function BlogPage({ params: { slug } }: BlogPageProps) {
         className='mb-0 lg:rounded-lg lg:shadow'
       />
 
-      <SectionTitle size='h2' text={title} textPosition='text-center' />
+      <div className='mt-5 text-center'>
+        <SectionTitle size='h2' text={title} textPosition='text-center' />
+        <time dateTime={date}>{humanReadableDate(date)}</time>
+      </div>
 
-      <time dateTime={date}>{humanReadableDate(date)}</time>
-
-      <article className='p-2 lg:px-0'>
+      <article className='prose my-8 w-full max-w-none border-y-2 border-dashed px-2 lg:px-0'>
         <Markdown>{content}</Markdown>
       </article>
 
-      <Link href='/blog' className='text-lg no-underline hover:font-bold'>
+      <Link
+        href='/blog'
+        className='py-2 text-lg text-gray-800 no-underline hover:font-bold'
+      >
         &#8592; Go back
       </Link>
     </div>
