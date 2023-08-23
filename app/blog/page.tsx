@@ -24,8 +24,8 @@ const getPostMetaData = () => {
 
     return {
       slug,
-      date,
       tags,
+      date,
       title,
       image,
       status,
@@ -45,7 +45,7 @@ export default function Blog() {
     <div className='w-full py-8'>
       <PageTitle text='My Blog' />
 
-      <Divider height='h-20' />
+      <Divider />
 
       {postList.map((postInfo) => (
         <BlogCard key={postInfo.slug} post={postInfo} />

@@ -6,8 +6,9 @@
    - [x] Create the blog list page
    - [x] Create the single blog page
 - [x] Create Blog Components
-   - [ ] Add a back button to the blog page
-   - [ ] Show human readable dates on Blog card and page.
+   - [x] Add a back button to the blog page (added to the bottom of the blog)
+   - [x] Show human readable dates on Blog card and page.
+   - [x] Make margins and paddings on the Blog page consistent with home page.
 - [ ] Image Performance
    - [ ] Image loading needs to have the blur hash effect.
    - [ ] Add the blur hash effect for images inside the blog.    

@@ -6,6 +6,9 @@ import matter from 'gray-matter';
 import Markdown from 'markdown-to-jsx';
 
 import SectionTitle from '@/components/typography/section-title.comp';
+import { humanReadableDate } from '@/utils/date.utils';
+import Link from 'next/link';
+import Divider from '@/components/divider.comp';
 
 const getPostContent = (slug: string) => {
   const folder = 'posts';
@@ -40,31 +43,36 @@ export const generateStaticParams = () => {
 };
 
 export default function BlogPage({ params: { slug } }: BlogPageProps) {
-  const post = getPostContent(slug);
+  const {
+    content,
+    data: { image, title, date },
+  } = getPostContent(slug);
 
   return (
-    <div className='prose flex w-full max-w-none flex-col items-center justify-center py-8'>
+    <div className='flex flex-col items-center justify-center'>
       <Image
         alt={slug}
         width={1024}
         height={570}
-        src={post.data.image}
+        src={image}
         className='mb-0 lg:rounded-lg lg:shadow'
       />
 
-      <SectionTitle
-        size='h2'
-        text={post.data.title}
-        textPosition='text-center'
-      />
+      <div className='mt-5 text-center'>
+        <SectionTitle size='h2' text={title} textPosition='text-center' />
+        <time dateTime={date}>{humanReadableDate(date)}</time>
+      </div>
 
-      <time dateTime={post.data.date}>
-        {new Date(post.data.date).toLocaleDateString()}
-      </time>
-
-      <article className='p-2 lg:px-0'>
-        <Markdown>{post.content}</Markdown>
+      <article className='prose my-8 w-full max-w-none border-y-2 border-dashed px-2 lg:px-0'>
+        <Markdown>{content}</Markdown>
       </article>
+
+      <Link
+        href='/blog'
+        className='py-2 text-lg text-gray-800 no-underline hover:font-bold'
+      >
+        &#8592; Go back
+      </Link>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { humanReadableDate } from '@/utils/date.utils';
+
 interface BlogCardProps {
   post: {
     title: string;
@@ -33,7 +35,7 @@ function BlogCard({ post }: BlogCardProps) {
             dateTime={post.date}
             className='mb-2 block text-xs text-gray-600'
           >
-            {post.date}
+            {humanReadableDate(post.date)}
           </time>
 
           <div className='prose-sm md:prose [&>*:last-child]:mb-0 [&>*]:mb-3'>
