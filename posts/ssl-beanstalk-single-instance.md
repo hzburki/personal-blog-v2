@@ -2,7 +2,7 @@
 title: 'Configure SSL Certificate — AWS Elastic Beanstalk (Single Instance)'
 date: '2019-10-05'
 status: published
-image: '/feature-image/ssl-cert-beanstalk-feature-image.jpeg'
+image: '/feature-image/ssl-cert-beanstalk-feature-image.jpg'
 description: 'AWS provides a very convenient solution called “AWS Certificate Manager” (ACM). It provides free public SSL certificates that you can connect to your load balanced Elastic Beanstalk (EB) instances. Apparently, ACM requires a load balancer (or CloudFront distribution). It’s not possible to use the certificate with an instance directly.'
 tags:
   - aws

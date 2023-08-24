@@ -11,7 +11,9 @@
    - [x] Make margins and paddings on the Blog page consistent with home page.
 - [ ] Image Performance
    - [ ] Image loading needs to have the blur hash effect.
-   - [ ] Add the blur hash effect for images inside the blog.    
+     - [ ] Blog Cards
+     - [x] Blog Page (added priority=true to the feature image))
+   - [ ] Create Image components for images inside Blog.    
    - [ ] Fix CSS styling error for images in Blog page.
 - [ ] Create Journey page
    - [ ] Decide what and how to make. Find examples.  

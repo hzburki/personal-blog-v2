@@ -52,9 +52,10 @@ export default function BlogPage({ params: { slug } }: BlogPageProps) {
     <div className='flex flex-col items-center justify-center'>
       <Image
         alt={slug}
+        src={image}
         width={1024}
         height={570}
-        src={image}
+        priority={true}
         className='mb-0 lg:rounded-lg lg:shadow'
       />
 

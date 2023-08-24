@@ -22,9 +22,10 @@ export default function Home() {
     <div className='flex flex-col flex-wrap justify-center gap-4  py-8 pt-[1vh] md:pt-[5vh]'>
       <div className='flex justify-center'>
         <Image
+          src={HI_THREE}
+          priority={true}
           alt='hzburki hey bitmoji'
           className='h-60 w-auto rounded-e-full'
-          src={HI_THREE}
         />
       </div>
 

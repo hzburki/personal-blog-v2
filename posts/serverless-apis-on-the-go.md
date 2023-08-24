@@ -2,7 +2,7 @@
 title: 'How to Serverless — Production Ready APIs on the Go'
 date: '2019-04-16'
 status: published
-image: '/feature-image/prod-ready-server-api-feature-image.jpeg'
+image: '/feature-image/prod-ready-server-api-feature-image.jpg'
 description: 'The Serverless Framework is an open source toolbox which enables developers to create, package and deploy their codebase on any cloud platform, in any language.'
 tags:
   - serverless
