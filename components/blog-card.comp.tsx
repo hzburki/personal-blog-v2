@@ -25,7 +25,7 @@ function BlogCard({ post }: BlogCardProps) {
           width={450}
           height={100}
           src={`${post.image}`}
-          className='mb-2 shadow transition-shadow duration-200 group-hover:shadow-xl sm:rounded-lg lg:mb-0'
+          className='mb-2 shadow-sm transition-shadow duration-200 group-hover:shadow-xl sm:rounded-lg lg:mb-0'
         />
 
         <div className='flex flex-col items-center justify-center px-4 lg:items-start'>
@@ -38,7 +38,7 @@ function BlogCard({ post }: BlogCardProps) {
             {humanReadableDate(post.date)}
           </time>
 
-          <div className='prose-sm md:prose [&>*:last-child]:mb-0 [&>*]:mb-3'>
+          <div className='prose-sm md:prose [&>*:last-child]:mb-0 *:mb-3'>
             {post.description}
           </div>
         </div>

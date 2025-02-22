@@ -55,7 +55,7 @@ export default function BlogPage({ params: { slug } }: BlogPageProps) {
         width={1024}
         height={570}
         src={image}
-        className='mb-0 lg:rounded-lg lg:shadow'
+        className='mb-0 lg:rounded-lg lg:shadow-sm'
       />
 
       <div className='mt-5 text-center'>
